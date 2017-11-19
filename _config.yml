@@ -5,10 +5,10 @@ permalink:           pretty
 #relative_permalinks: true
 
 # Setup
-title:               Lanyon
-tagline:             'A Jekyll theme'
-description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 http://lanyon.getpoole.com
+title:               hoisharka
+tagline:             '개발 블로그'
+description:         '웹 개발자 김태헌입니다.'
+url:                 https://hoisharka.github.com
 baseurl:             ''
 paginate:            5
 
@@ -38,3 +38,6 @@ defaults:
 
 google_analytics:
   ua: 'UA-109898110-1'
+
+github:
+  repo: 'https://github.com/hoisharka/hoisharka.github.io'
