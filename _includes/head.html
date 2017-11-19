@@ -26,4 +26,10 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  {% if site.google_analytics != null %}
+  {% include google_analytics.html %}
+  {% endif %}
+
 </head>

@@ -35,3 +35,6 @@ defaults:
       type: tags
     values:
       layout: tag
+
+google_analytics:
+  ua: 'UA-109898110-1'
