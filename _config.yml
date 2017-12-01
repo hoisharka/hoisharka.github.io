@@ -5,8 +5,8 @@ permalink:           pretty
 #relative_permalinks: true
 
 # Setup
-title:               hoisharka
-tagline:             '개발 블로그'
+title:               hoisharka's blog
+tagline:             'Front-end Dev Engineer'
 description:         '웹 개발자 김태헌입니다.'
 url:                 https://hoisharka.github.com
 baseurl:             ''
@@ -14,9 +14,9 @@ paginate:            5
 
 # About/contact
 author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  name:              KIM TAE HEON
+  url:               https://hoisharka.github.com
+  email:             hoisharka@gmail.com
 
 # Custom vars
 version:             1.0.0
@@ -24,20 +24,24 @@ version:             1.0.0
 plugins: [jekyll-paginate]
 
 # Tag setting
-collections:
-  tags:
-    output: true
-    permalink: /tags/:path/
+#collections:
+#  tags:
+#    output: true
+#    permalink: /tags/:path/
 
-defaults:
-  - scope:
-      path: ''
-      type: tags
-    values:
-      layout: tag
+#defaults:
+#  - scope:
+#      path: ''
+#      type: tags
+#    values:
+#      layout: tag
 
 google_analytics:
   ua: 'UA-109898110-1'
 
 github:
   repo: 'https://github.com/hoisharka/hoisharka.github.io'
+
+category_dir: category/
+tag_dir: tag/
+
