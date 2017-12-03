@@ -88,3 +88,7 @@ $ jekyll serve --watch
 
 실행 결과는 localhost:4000으로 접속해서 확인할 수 있다.
 ![jekyll server error]({{ site.url }}/assets/jekyll-start-009.png)
+
+* 참고 URL
+[https://jekyllrb-ko.github.io/](https://jekyllrb-ko.github.io/)
+[http://recoveryman.tistory.com/321](http://recoveryman.tistory.com/321)
