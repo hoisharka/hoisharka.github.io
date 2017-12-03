@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 우분투 초기 세팅 
-categories: [ubuntu]
-tags: [ubuntu]
+categories: ubuntu
+tags: ubuntu
 ---
 
 ## Caps Lock을 Ctrl로 변경 
