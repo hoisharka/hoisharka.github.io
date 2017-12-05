@@ -11,3 +11,16 @@
   border-radius: 50%;
   transition: 0.5s ease-in-out;
 }
+
+.pl-3rem {
+  padding-left: 3rem;
+}
+
+.tags-cloud{
+  padding: 0 1.5rem 0 3rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.tags-cloud > div{
+  background: #202020;
+}

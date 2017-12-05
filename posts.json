@@ -1,0 +1,19 @@
+---
+---
+{% capture json %}
+{
+"posts": [
+{% for post in site.posts %}
+{
+"title": "{{ post.title }}",
+"date": "{{ post.date | date: "%Y-%m-%d"}}",
+"categories": {{ post.categories | jsonify }},
+"tags": {{ post.tags | jsonify }},
+"url": "{{ post.url }}"
+}
+{% unless forloop.last %},{% endunless %}
+{% endfor -%}
+]
+}
+{% endcapture %}
+{{ json | strip_newlines | normalize_whitespace }}
