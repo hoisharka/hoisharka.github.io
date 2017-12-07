@@ -16,11 +16,11 @@ $ npm install --save-dev eslint
 
 ## webstorm setting
 Languages & Frameworks > Javascript 항목을 눌러 사용할 Javascript 버전을 React JSX로 변경한다.  
-![webstorm js setting]({{ site.url }}/assets/react-eslint-001.png)
+![webstorm js setting]({{ site.url }}/assets/react-eslint-setting-001.png)
 
 세팅 메뉴에 들어가서 eslint를 검색하면 아래 화면이 뜬다. <br>
 ESLint package 항목에 현재 프로젝트의 node_modules안에 eslint를 선택한다.
-![webstorm js setting]({{ site.url }}/assets/react-eslint-001.png)
+![webstorm js setting]({{ site.url }}/assets/react-eslint-setting-002.png)
 
 ### airbnb-eslint관련 플러그인 설치
 ```bash
