@@ -35,6 +35,7 @@ rules의 react/jsx-filename-extension 는 js파일에서 jsx문법을 사용했�
 ```js
 module.exports = {
   "env": {
+    "browser": true,
     "node": true,
     "es6": true
   },
