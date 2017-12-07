@@ -2,7 +2,7 @@
 layout: post
 title: webstorm에서 eslint 사용 시 react.component unresolved 문제
 category: react
-tag: react, webstorm, eslint 
+tag: [react, webstorm, eslint] 
 ---
 
 Webstorm에서 eslint를 사용하면서 react를 개발할 때 아래와 같은 경고 메시지가 신경쓰였다. 왜 React.Component 선언을 못 읽을까?
