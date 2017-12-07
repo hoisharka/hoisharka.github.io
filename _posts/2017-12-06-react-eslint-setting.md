@@ -24,7 +24,7 @@ ESLint package 항목에 현재 프로젝트의 node_modules안에 eslint를 선
 
 ### airbnb-eslint관련 플러그인 설치
 ```bash
-npm install --save-dev eslint-plugin-import, eslint-plugin-react, eslint-plugin-jsx-a11y, eslint-config-airbnb
+npm install --save-dev eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint-config-airbnb
 ```
 ### 프로젝트 디렉토리 루트에 .eslintrc.js 추가
 아래 설정은 react개발 시 eslintrc.js를 설정하는 방법을 검색해서 복붙해 놓은 것이다.<br>
