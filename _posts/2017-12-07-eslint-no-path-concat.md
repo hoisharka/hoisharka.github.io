@@ -2,6 +2,7 @@
 layout: post
 title: ESLint no-path-concat
 category: react
+<<<<<<< HEAD
 tag: [eslint, react, webstorm]
 ---
 
