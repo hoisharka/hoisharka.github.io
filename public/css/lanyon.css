@@ -40,14 +40,18 @@ body {
   overflow-x: hidden;
 }
 
-@font-face {
-  font-family: "D2Coding";
-  src: url( '../../assets/fonts/D2Coding.ttf') format('truetype');
-}
+/*@font-face {*/
+  /*font-family: "D2Coding";*/
+  /*src: url( '../../assets/fonts/D2Coding.ttf') format('truetype');*/
+/*}*/
 
-html {
+/*html {
   font-family: "D2Coding", Georgia, "Times New Roman", serif;
-}
+}*/
+
+/*html {*/
+  /*font-family: Georgia, "Times New Roman", serif;*/
+/*}*/
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
