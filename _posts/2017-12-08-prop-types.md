@@ -7,7 +7,7 @@ tag: [react]
 
 다음과 같은 구문에서 에러가 발생했다.
 ```js
-ContactCreate.propsTypes = {
+ContactCreate.propTypes = {
   onCreate: React.PropTypes.func
 };
 ```
@@ -33,7 +33,7 @@ import PropTypes from 'prop-types';
 
 React.PropTypes를 PropTypes로 변경한다.
 ```js
-ContactCreate.propsTypes = {
+ContactCreate.propTypes = {
   onCreate: PropTypes.func
 };
 ```
