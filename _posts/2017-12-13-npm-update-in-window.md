@@ -11,12 +11,18 @@ tag: [npm]
 
 ## 설치 순서
 1. 관리자 권한으로 cmd를 실행 한다.
-2. 
+2. `npm-windows-upgrade`라는 npm 패키지를 설치한다.
+  ```bash
+  $ npm install npm-windows-upgrade
+  ```
+3. `npm-windows-upgrade`를 실행한다.
+  ```bash
+  $ npm-windows-upgrade
+  ```
+4. 버전 목록이 나오면 원하는 버전을 선택해서 설치한다.
 
-<br> 
-`npm-windows-upgrade`라는 npm 패키지를 설치하고 실행해야 한다.<br>
-실행할 땐 
-
+- 참고
+  - [stackoverflow > How do I update Node.js and npm on Windows?](https://stackoverflow.com/questions/18412129/how-do-i-update-node-js-and-npm-on-windows)
 
 
 
