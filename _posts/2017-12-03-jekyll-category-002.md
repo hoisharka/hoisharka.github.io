@@ -41,7 +41,7 @@ type: page
         <time>
           {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
         </time>
-        <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <a class="title" href="{{ post.url | prepend: site.url }}">{{ post.title }}</a>
       </li>
       {% endif %}
       {% endfor %}

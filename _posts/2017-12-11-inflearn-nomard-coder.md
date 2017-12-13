@@ -19,5 +19,7 @@ velopert님의 강좌에 이어 노마드코더님의 [ReactJS로 웹서비스 �
   - async와 await문법에 대해 좀 더 자세히 알아봐야겠다.
   - sass나 scss에 bem을 적용해서 css를 작성하는 연습을 해야될 것 같다.
     
-- 참고
+    
+    
+* 참고
   - [https://www.inflearn.com/course/reactjs-web/](https://www.inflearn.com/course/reactjs-web/) 
