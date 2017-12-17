@@ -45,3 +45,4 @@ github:
 category_dir: category/
 tag_dir: tag/
 
+excerpt_separator: ""
