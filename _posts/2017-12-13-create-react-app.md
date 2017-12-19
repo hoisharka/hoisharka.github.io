@@ -20,26 +20,12 @@ $ cd hollow-world
 ```
 
 ## eslint 설정
-```jsx 
-$ npm install --save-dev eslint eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint-config-airbnb
-```
+react-app 전용 코딩 컨벤션을 사용한다.
 
 ### .eslintrc.js 추가
 ```js
 module.exports = {
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
-  "extends": "airbnb",
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "comma-dangle": ["error", "never"],
-    "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}]
-  }
+  "extends": "react-app"
 };
 ```
 
@@ -63,6 +49,6 @@ $ npm install --save prop-types
 
 ## 프로젝트 폴더 안에서 설치하는 패키지(복붙용)
 ``` 
-$ npm install --save-dev eslint eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint-config-airbnb @types/react @types/react-dom
+$ npm install --save-dev @types/react @types/react-dom
 $ npm install --save redux react-redux prop-types
 ```
