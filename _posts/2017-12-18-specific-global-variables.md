@@ -15,5 +15,13 @@ location이나 history 같은 전역 변수를 ESLint가 참조할 수 있게 �
 "no-restricted-globals": ["off"]
 ```
 
+파일에 주석으로 eslint rule을 변경해주는 방법도 있다. 해당 파일에만 그 rule이 적용되는 것이다. 
+```
+/* global history */
+/* global location */
+/* global window */
+
+/* eslint no-restricted-globals: ["off"] */
+```
 - 참고
   - [eslint.org > no-restricted-globals](https://eslint.org/docs/rules/no-restricted-globals)
