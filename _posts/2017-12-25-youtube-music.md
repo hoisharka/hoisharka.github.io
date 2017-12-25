@@ -6,6 +6,13 @@ tag: [open-api, youtube]
 
 youtube로 음악 데이터를 가져와보자.
 
+## youtube api key 받기
+api 호출을 위해선 api key가 필요하고 [YouTube Data API 페이지](https://developers.google.com/youtube/v3/getting-started) 내용대로 따라해서 쉽게 받을 수 있었다.
+
+생활코딩의 강좌 중에서도 해당 내용을 설명하는 영상이 있어서 링크를 추가한다.
+- [https://youtu.be/rHEAHmNkfaI](https://youtu.be/rHEAHmNkfaI)
+
+## API 호출
 가져올 음악 목록이다. [음악 채널 > 인기트랙 - 한국](https://www.youtube.com/playlist?list=PLFgquLnL59alGJcdc0BEZJb2p7IgkL0Oe) 이고 URL의 끝에 보면 playlistId(`PLFgquLnL59alGJcdc0BEZJb2p7IgkL0Oe`)가 적혀 있다.
 ![playlist]({{ site.url }}/assets/youtube-music-001.png)
 
