@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 리액트 컴포넌트 스타일링
-tag: [react, css] 
+category: react
+tag: [react, css]
 ---
 verlopert 님의 [리액트 컴포넌트 스타일링](https://velopert.com/3447) 을 통해 공부한 것을 기록해 놓는 포스터다.
 
@@ -10,11 +11,11 @@ webpack 설정 파일을 살펴보면 3가지 로더가 사용되는 것을 볼 
 
 - style-loader
   - 스타일들을 불러와서 페이지에서 활성화 해주는 역할
-- css-loader 
+- css-loader
   - css파일에서 `import`와 `url(...)` 문들을 webpack의 require 기능을 통하여 처리해주는 역할
 - postcss-loader
   - css구문이 모든 브라우저에서 제대로 동작할 수 있도록 자동으로 -webkit, -mos, -ms 등의 접두사를 붙여줌
-			
+
 ## CSS Module 사용 설정
   - css-loader 속성 변경
 	  - modules: true
@@ -70,9 +71,9 @@ classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // => 'bar 1
 - [Sass 라이브러리 사용 예제](https://github.com/hoisharka/styling-react/tree/sass-button)
 
 ## 마무리
-  - 가장 낯선 방법이 styled-components였다. 
+  - 가장 낯선 방법이 styled-components였다.
   - 태그드 템플릿 리터럴도 너무 낯선 문법이다. 예제를 좀 더 찾아봐야겠다.
   - 개인 프로젝트 작업을 할 땐 scss를 사용할 것 같다.
-  
+
 - 참고
   - [velopert.com > 리액트 컴포넌트 스타일링](https://velopert.com/3447)
