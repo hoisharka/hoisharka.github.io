@@ -1,5 +1,5 @@
 ---
-title: 윈도우에서 타이틀바 보이기/숨기기
+title: 윈도우에서 emacs 타이틀바 보이기/숨기기
 layout: post
 categories: [tool]
 tags: [emacs, windows]
