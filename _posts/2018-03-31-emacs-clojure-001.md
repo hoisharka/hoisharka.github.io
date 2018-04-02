@@ -1,5 +1,5 @@
 ---
-title: emacs에서 clojure 개발 환경 세팅(1)
+title: emacs에서 clojure 개발 환경 세팅
 layout: post
 categories: [clojure]
 tags: [emacs, clojure]
@@ -37,10 +37,8 @@ windows에서는 leiningen-win-installer로 설치할 수 있다.
 아래는 lein.sh를 실행했을 때 나타나는 화면이다.
 ![lein.sh 실행 화면](/assets/emacs-clojure-setting-002.png)
 
-여기까지 하면 `lein repl`명령어로 clojure예제를 실행할 수 있는 repl을 띄울 수 있다.
+여기까지 하면 cmd에ㅓ `lein repl`명령어로 clojure예제를 실행할 수 있는 repl을 띄울 수 있다.
 ![repl](/assets/emacs-clojure-setting-003.png)
-
-여기까지는 그냥 leiningen을 cmd에서 실행하는데 성공한 내용이다.
 
 ## git-bash에서 leiningen 실행
 lein이 cmd에서는 실행됐지만 git-bash상에서는 실행되지 않았다. 나는 emacs에서도 git-bash를 기본 shell로 사용하고 있었기 때문에 git-bash에서 lein명령어가 되지 않으면 emacs에서도 사용할 수 없을 것 같았다.
@@ -67,14 +65,17 @@ M-x package-install [RET] cider [RET]
 ```
 
 이렇게 설치하고 `M-x cider-jack-in [RET]`를 쳐주면 lein repl이 나와야 하는데... 에러가 발생했다.
-그리고 검색하고 또 검색했지만 해결 방법을 찾을 수 없었다.
+원인은 emacs 기본 shell을 git-bash로 바꿔놨기 때문이었다. init.el에 해당 설정을 주석처리하고 emacs를 재시작하니 repl이 정상적으로 동작했다.
 
 
 ## 결론
 앞에서 말했듯이 [braveclojure.com](https://www.braveclojure.com/basic-emacs/)의 글을 보고 따라하면 emacs에서 lein repl이 정말 쉽게 뜬다.
-다음 포스팅에서 무슨 차이로 인해 내가 세팅했던 것이 정상동작하지 않았는지 알아볼거다.
+그러나 git-bash를 기본 shell로 사용할 수 없게 된다. emacs를 정말 좋아하는데 윈도우 환경에서 emacs를 사용하려니 이런 문제들이 계속 발생하는 것 같고 가상 머신으로 리눅스를 띄워 사용하려니 컴퓨터 성능이 안 따라준다. 도커를 사용해서 emacs를 사용하는 방법을 알아봐야겠다.
+
 
 
 ## 참고
   - [clojure: Install lein( leiningen) on windows](https://www.youtube.com/watch?v=axOfYQg1VQw)
   - [https://github.com/clojure-emacs/cider](https://github.com/clojure-emacs/cider)
+  - [How to Use Emacs, an Excellent Clojure Editor](https://www.braveclojure.com/basic-emacs/)
+  - [Clojure with Emacs](http://clojure-doc.org/articles/tutorials/emacs.html)
