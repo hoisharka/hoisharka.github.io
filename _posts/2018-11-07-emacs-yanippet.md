@@ -12,8 +12,9 @@ tags: [emacs, yasnippet]
 yasnippet이 날아가버렸다.
 
 어떻게 설정했는지 기억이 안나서 내가 올려놓은 포스팅을 보고
-따라해봤다. [https://hoisharka.github.io/tool/2018/03/13/emacs-yasnippet/][emacs yasnippet 사용하기] yasnippet 등록까지만 되고 설정해놓은 key를 입력하고 탭을
-눌러도 반응이 없었다.
+따라해봤다([emacs yasnippet 사용하기](https://hoisharka.github.io/tool/2018/03/13/emacs-yasnippet/))
+. yasnippet 등록까지만 되고 설정해놓은 key를 입력하고 탭을 눌러도 반응이
+없었다.
 
 다시한번 yanippet을 설치하는 설정부터 알아봤다. init.el에 아래 설정을
 추가하면 된다.  yanippet 패키지에 yasnippet-snippets 패키지까지
@@ -49,7 +50,7 @@ markdown 설정
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 ```
-설정 추가 후 `C-x Ce`로 코드를 실행 시킨 후 [https://hoisharka.github.io/tool/2018/03/13/emacs-yasnippet/][emacs yasnippet 사용하기] 에서 등록했던 jph(jekyll post header를 약자로 해서 지음)를 .md 확장자 파일에서 실행했다.
+설정 추가 후 `C-x Ce`로 코드를 실행 시킨 후 [emacs yasnippet 사용하기](https://hoisharka.github.io/tool/2018/03/13/emacs-yasnippet/) 에서 등록했던 jph(jekyll post header를 약자로 해서 지음)를 .md 확장자 파일에서 실행했다.
 
 정상적으로 snippet이 자동완성 되었다. 
 
