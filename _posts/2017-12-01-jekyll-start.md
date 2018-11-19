@@ -86,8 +86,11 @@ $ bundler install
 $ jekyll serve --watch
 {% endhighlight %}
 
+  > 만약 테마가 이전 버전에서 만들어진 거라 최신 버전 지킬을 설치했을 때 `jekyll serve`를 실행하면 오류가 발생할 수 있다. 이럴 땐 `bundler exec jekyll server` 명령으로 실행하면 동작할 것이다. 
+
 실행 결과는 localhost:4000으로 접속해서 확인할 수 있다.
 ![jekyll server error]({{ site.url }}/assets/jekyll-start-009.png)
+
 
 * 참고 URL
 [https://jekyllrb-ko.github.io/](https://jekyllrb-ko.github.io/)
