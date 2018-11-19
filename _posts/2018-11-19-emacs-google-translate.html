@@ -1,0 +1,47 @@
+---
+
+title: emacs google-translate
+layout: post
+categories: [tool]
+tags: [emacs goolge-translate]
+
+---
+
+<div id="outline-container-org0e42c1f" class="outline-2">
+<h2 id="org0e42c1f">google-translate</h2>
+<div class="outline-text-2" id="text-org0e42c1f">
+<p>
+emacs에서 바로 구글번역을 사용할 수 있게 도와주는 패키지이다. 
+</p>
+</div>
+
+<div id="outline-container-org5cb8cc5" class="outline-3">
+<h3 id="org5cb8cc5">간단한 사용법</h3>
+<div class="outline-text-3" id="text-org5cb8cc5">
+<ol class="org-ol">
+<li><p>
+아래 설정을 init.el에 추가하고 실행한다.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">google translate</span>
+(<span class="org-keyword">use-package</span> <span class="org-constant">google-translate</span>
+  <span class="org-builtin">:ensure</span> t
+  <span class="org-builtin">:config</span>
+  (<span class="org-keyword">require</span> '<span class="org-constant">google-translate-smooth-ui</span>)
+  (<span class="org-keyword">setq</span> google-translate-translation-directions-alist
+        '((<span class="org-string">"en"</span> . <span class="org-string">"ko"</span>) (<span class="org-string">"ko"</span> . <span class="org-string">"en"</span>)))
+  (<span class="org-keyword">setq</span> google-translate-output-destination nil)
+  (<span class="org-keyword">setq</span> google-translate-pop-up-buffer-set-focus t)
+  (<span class="org-keyword">setq</span> google-translate-default-source-language <span class="org-string">"en"</span>)
+  (<span class="org-keyword">setq</span> google-translate-default-target-language <span class="org-string">"ko"</span>)
+  (global-set-key <span class="org-string">"\C-ct"</span> 'google-translate-smooth-translate))
+</pre>
+</div></li>
+
+<li>번역할 영어 문장을 region으로 선택한다.</li>
+
+<li><code>C-ct</code> 커멘드를 임력하면 팝업 버퍼가 열리면서 번역된 내용이 나타난다.</li>
+</ol>
+</div>
+</div>
+</div>
