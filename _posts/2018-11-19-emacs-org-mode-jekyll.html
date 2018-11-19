@@ -1,0 +1,78 @@
+---
+
+title: emacs org-mode jekyll
+layout: post
+categories: [tool]
+tags: [emacs org-mode jekyll]
+
+---
+
+<p>
+지금까지 작성한 포스트는 md파일로 포스트를 작성하고 jekyll로 html변환을 하는 방식이었다. 그런데 이제 org모드에 익숙하기 때문에 org모드로 문서작성을 많이 하는데 이것을 바로 포스팅하고 싶어졌다.
+</p>
+
+<p>
+찾아보니 괜찮은 방법을 알아냈다. org 파일로 작성한 포스트를 html로 바꾸고 이것을 jekyll 서버로 올리는 방식이다. org파일은 jekyll프로젝트 하위에 _org 폴더를 만들어 보관한다.
+</p>
+
+
+<ol class="org-ol">
+<li>org 파일은 jekyll 프로젝트 하위에 _org 디렉토리를 만들어 보관한다.</li>
+
+<li><p>
+org파일을 html로 만들 때 필요한 설정을 init.el에 추가하여 실행한다.
+_org의 파일을 퍼블리싱하여 _posts에 놓겠다는 내용인 듯하다.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(<span class="org-keyword">setq</span> org-publish-project-alist
+      '((<span class="org-string">"org keyll publish"</span>
+         <span class="org-comment-delimiter">;; </span><span class="org-comment">Path to org files.</span>
+         <span class="org-builtin">:base-directory</span> <span class="org-string">"~/hoisharka.github.io/_org"</span>
+         <span class="org-builtin">:base-extension</span> <span class="org-string">"org"</span>
+
+         <span class="org-comment-delimiter">;; </span><span class="org-comment">Path to Jekyll Posts</span>
+         <span class="org-builtin">:publishing-directory</span> <span class="org-string">"~/hoisharka.github.io/_posts/"</span>
+         <span class="org-builtin">:recursive</span> t
+         <span class="org-builtin">:publishing-function</span> org-html-publish-to-html
+         <span class="org-builtin">:headline-levels</span> 4
+         <span class="org-builtin">:html-extension</span> <span class="org-string">"html"</span>
+         <span class="org-builtin">:body-only</span> t
+         )))
+</pre>
+</div></li>
+
+<li><p>
+org파일의 해더에 내용을 적는다.
+</p>
+<div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+OPTIONS: toc:nil num:nil</span>
+<span class="org-org-block-begin-line">#+BEGIN_EXPORT html</span>
+<span class="org-org-block">---</span>
+
+<span class="org-org-block">title: emacs org-mode jekyll</span>
+<span class="org-org-block">layout: post</span>
+<span class="org-org-block">categories: [tool]</span>
+<span class="org-org-block">tags: [emacs org-mode jekyll]</span>
+
+<span class="org-org-block">---</span>
+<span class="org-org-block-end-line">#+END_EXPORT</span>
+</pre>
+</div></li>
+<li>그 아래 내용을 적는다.</li>
+
+<li><code>C-c C-e P p</code> 커멘드로 퍼블리싱한다.</li>
+
+<li>_post 디렉토리에 html파일이 추가된 것을 확인할 수 있다.</li>
+
+<li>이것을 commit 및 push 하면 포스팅이 완료된다.</li>
+</ol>
+
+
+<div id="outline-container-org040ef47" class="outline-2">
+<h2 id="org040ef47">참고</h2>
+<div class="outline-text-2" id="text-org040ef47">
+<ul class="org-ul">
+<li><a href="https://levlaz.org/using-org-mode-with-jekyll/">https://levlaz.org/using-org-mode-with-jekyll/</a></li>
+</ul>
+</div>
+</div>
