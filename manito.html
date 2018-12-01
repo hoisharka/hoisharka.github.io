@@ -86,12 +86,16 @@ title: Manito
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
- var data = getData();
- var id = getParam('id');
+
+ var data = null;
+ var id = null;
  var memberCount = 8;
  
  $(document).ready(function(){
-     // start load my js functions
+     data = getData();
+     id = getParam('id');
+     memberCount = 8;
+
      if(id){
          drawGame(memberCount, data.manito.map(function(m){return m.num}), 100, {x: 135, y: 135});
 
