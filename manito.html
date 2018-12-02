@@ -227,7 +227,7 @@ title: Manito
      getData(function(data){
          if(data.manito.length == memberCount){
              var myNum = data.manito.filter(function(m){
-                 return m.id == id
+                 return m.id == getParam('id');
              })[0]['num'];
 
              var resultData = data.manito.filter(function(m){
