@@ -92,21 +92,21 @@ title: Manito
  var id = null;
  var memberCount = 8;
  
- $(document).ready(function(){
-     data = getData();
-     id = getParam('id');
-     memberCount = 8;
-
-     if(id){
-         drawGame(memberCount, data.manito.map(function(m){return m.num}), 100, {x: 135, y: 135});
-
-         $(".btn-result").click(function(){
-             showResult();
-         });
-     }else{
-         alert("잘못된 접근입니다.");
-     }
- });
+//  $(document).ready(function(){
+//      data = getData();
+//      id = getParam('id');
+//      memberCount = 8;
+// 
+//      if(id){
+//          drawGame(memberCount, data.manito.map(function(m){return m.num}), 100, {x: 135, y: 135});
+// 
+//          $(".btn-result").click(function(){
+//              showResult();
+//          });
+//      }else{
+//          alert("잘못된 접근입니다.");
+//      }
+//  });
  
  
  
