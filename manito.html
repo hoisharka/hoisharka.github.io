@@ -87,30 +87,31 @@ title: Manito
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="../js/vconsole.min.js"></script>
 <script>
- var vConsole = new VConsole();
- var data = null;
+ // var vConsole = new VConsole();
  var id = null;
  var memberCount = 8;
  
  $(document).ready(function(){
-     data = getData();
-     id = getParam('id');
-     memberCount = 8;
+     getData(function(data){
+         id = getParam('id');
+         memberCount = 8;
 
-     if(id){
-         drawGame(memberCount, data.manito.map(function(m){return m.num}), 100, {x: 135, y: 135});
+         if(id){
+             drawGame(memberCount, data.manito.map(function(m){return m.num}), 100, {x: 135, y: 135});
 
-         $(".btn-result").click(function(){
-             showResult();
-         });
-     }else{
-         alert("잘못된 접근입니다.");
-     }
+             $(".btn-result").click(function(){
+                 showResult();
+             });
+         }else{
+             alert("잘못된 접근입니다.");
+         }
+     });
+     
  });
  
  
- function getData(){
-     var result;
+ function getData(callback){
+
      $.ajax({
          async: false,
          crossOrigin: true,
@@ -119,17 +120,17 @@ title: Manito
          dataType: 'jsonp',
          success: function(data){
              console.log("success", data);
-             result = data;
+             callback(data);
          },
          error: function(err){
              console.log("error", err);
              //alert(err);
          }
      });
-     return result;
+
  }
 
- function setData(data){
+ function setData(data, callback){
      data.modify = true;
      $.ajax({
          async: false,
@@ -139,6 +140,7 @@ title: Manito
          data: data,
          success: function(data){
              console.log("success", data);
+             callback(data);
          },
          error: function(err){
              console.log("error", err);
@@ -185,28 +187,30 @@ title: Manito
  }
  
  function select(num){
-     data = getData();
-     var foundNum = data.manito.filter(function(m){
-         return m.num == num;
-     });
-     var foundId = data.manito.filter(function(m){
-         return m.id == id;
-     })
+     getData(function(data){
+         var foundNum = data.manito.filter(function(m){
+             return m.num == num;
+         });
+         var foundId = data.manito.filter(function(m){
+             return m.id == id;
+         })
 
-     if(foundId.length > 0){
-         alert("이미 " + foundId[0].num + "을(를) 선택하셨습니다.");
-     }
-     
-     else if(foundNum.length > 0){
-         alert("이미 선택된 번호입니다.");
-         location.reload();
-     }
-     else{
-         data.manito.push({num: num, id:id});
-         setData({manito: JSON.stringify(data.manito)});
-         alert("선택이 완료되었습니다.");
-         location.reload();
-     }
+         if(foundId.length > 0){
+             alert("이미 " + foundId[0].num + "을(를) 선택하셨습니다.");
+         }
+         
+         else if(foundNum.length > 0){
+             alert("이미 선택된 번호입니다.");
+             location.reload();
+         }
+         else{
+             data.manito.push({num: num, id:id});
+             setData({manito: JSON.stringify(data.manito)}, function(){
+                 alert("선택이 완료되었습니다.");
+                 location.reload();
+             });
+         }
+     });
  }
 
  function getParam(name) {
@@ -219,28 +223,28 @@ title: Manito
  }
 
  function showResult(){
-     data = getData();
-     if(data.manito.length == memberCount){
-         var myNum = data.manito.filter(function(m){
-             return m.id == id
-         })[0]['num'];
+     getData(function(data){
+         if(data.manito.length == memberCount){
+             var myNum = data.manito.filter(function(m){
+                 return m.id == id
+             })[0]['num'];
 
-         var resultData = data.manito.filter(function(m){
-             if(myNum < memberCount && m.num == myNum + 1){
-                 return true;
-             }else if(myNum == memberCount && m.num == 0){
-                 return true;
-             }
-         })[0];
+             var resultData = data.manito.filter(function(m){
+                 if(myNum < memberCount && m.num == myNum + 1){
+                     return true;
+                 }else if(myNum == memberCount && m.num == 0){
+                     return true;
+                 }
+             })[0];
 
-         var resultName = data.member_id.filter(function(m){
-             return m.id == resultData.id;
-         })[0]['name'];
+             var resultName = data.member_id.filter(function(m){
+                 return m.id == resultData.id;
+             })[0]['name'];
 
-         alert("당신은 " + resultName + "님의 마니또입니다.");
-     }else{
-         alert("모든 참가자가 번호를 선택하면 결과를 확인할 수 있습니다");
-     }
+             alert("당신은 " + resultName + "님의 마니또입니다.");
+         }else{
+             alert("모든 참가자가 번호를 선택하면 결과를 확인할 수 있습니다");
+         }
+     });
  }
-
 </script>
