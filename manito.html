@@ -132,16 +132,16 @@ title: Manito
 
  function setData(data, callback){
      data.modify = true;
+     data.method = 'post';
      $.ajax({
          async: false,
          crossOrigin: true,
          url: 'https://script.google.com/macros/s/AKfycby8rbbjjo7-05wtWDXrLmqP5YpWyoqDwXYt31QwUkwukL438FU/exec',
-         method: 'post',
          dataType: 'jsonp',
          data: data,
-         success: function(data){
-             console.log("success", data);
-             callback(data);
+         success: function(res){
+             console.log("success", res);
+             //callback(data);
          },
          error: function(err){
              console.log("error", err);
