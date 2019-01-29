@@ -1,0 +1,251 @@
+---
+layout: page
+title: Manito
+---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<style>
+ .game{
+     width:300px;
+     height:300px;
+     margin: 0 auto;
+     position: relative;
+ }
+ .cir-table{
+     position: absolute;
+     top: 25%;
+     left: 25%;
+     width: 50%;
+     height: 50%;
+     background-color: #dddd77;
+     border-radius: 100%;
+ }
+
+ .cir-member-wrap{
+     width: 100%;
+     height: 100%;
+     position:relative;
+ }
+ 
+ .cir-member{
+     position:absolute;
+     width: 30px;
+     height: 30px;
+     background-color: #ffa700;
+     border-radius: 100%;
+     color: #ffffff;
+     font-weight: bold;
+     text-align: center;
+     font-size: 12px;
+     padding: 4px 0;
+     cursor: pointer;
+ }
+
+ .cir-member:hover, .cir-member:focus{
+     background-color: #fd5900;
+ }
+
+ .btn-result{
+     width: 150px;
+     height: 60px;
+     font: 20px;
+     background-color: #dfefad;
+ }
+</style>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<h4>나는 누구의 마니또?</h4>
+<p> 자신이 누구의 마니또가 될 것인지 결정하는 게임입니다.</p>
+<p>
+    참가자는 
+    강성민, 김나은, 김성호, 김아현, 김태헌, 김태형, 배세준, 조성훈
+    총 8명입니다.
+</p>
+
+<h4>규칙</h4>
+<p>
+    아래 번호 중 하나를 선택하세요. 이미 선택된 자리는 선택할 수 없습니다. 
+</p>
+<p>
+    모든 참가자가 자리를 선택하고 나면 자신이 누구의 마니또인지 확인할 수 있습니다. 
+</p>
+<p>
+    <b>단순히 선택한 자리의 왼쪽에 사람이 마니또가 됩니다.</b>
+</p>
+<p>
+    만약 어느 참가자가 불참하게 된다면 그 참가자는 자신이 누구의 마니또인지 모두에게 공개해야 하고 불참하는 참가자의 마니또는 공개된 참가자의 마니또로 변경됩니다. 
+</p>
+
+<div class="game">
+    <div class="cir-table"></div>
+</div>
+<button class="btn-result">
+    결과보기 
+</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="../js/vconsole.min.js"></script>
+<script>
+ // var vConsole = new VConsole();
+ var id = null;
+ var memberCount = 8;
+ 
+ $(document).ready(function(){
+     getData(function(data){
+         id = getParam('id');
+         memberCount = 8;
+
+         if(id){
+             drawGame(memberCount, data.manito.map(function(m){return m.num}), 100, {x: 135, y: 135});
+
+             $(".btn-result").click(function(){
+                 showResult();
+             });
+         }else{
+             alert("잘못된 접근입니다.");
+         }
+     });
+     
+ });
+ 
+ 
+ function getData(callback){
+
+     $.ajax({
+         async: false,
+         crossOrigin: true,
+         url: 'https://script.google.com/macros/s/AKfycby8rbbjjo7-05wtWDXrLmqP5YpWyoqDwXYt31QwUkwukL438FU/exec',
+         method: 'get',
+         dataType: 'jsonp',
+         success: function(data){
+             console.log("success", data);
+             callback(data);
+         },
+         error: function(err){
+             console.log("error", err);
+             //alert(err);
+         }
+     });
+
+ }
+
+ function setData(data, callback){
+     data.modify = true;
+     data.method = 'post';
+     $.ajax({
+         async: false,
+         crossOrigin: true,
+         url: 'https://script.google.com/macros/s/AKfycby8rbbjjo7-05wtWDXrLmqP5YpWyoqDwXYt31QwUkwukL438FU/exec',
+         dataType: 'jsonp',
+         data: data,
+         success: function(data){
+             console.log("success", data);
+             callback(data);
+         },
+         error: function(err){
+             console.log("error", err);
+             //alert(err);
+         }
+     });
+ }
+
+
+ function drawGame(memberCount, alreadySelectedArr, radius, center){
+     var termDegree = 2 * Math.PI / memberCount;
+     var $wrap = $('<div class="cir-member-wrap"></div>');
+     for(var i=0; i<memberCount; i++) {
+         var degree = termDegree * i;
+         var x = Math.cos(degree, radius) * radius;
+         var y = Math.sin(degree, radius) * radius;
+         
+         var $cirMember = $('<div class="cir-member">' + (i+1) + '</div>');
+         $cirMember.css({
+             top: (center.y + y) + 'px',
+             left: (center.x + x) + 'px'
+         });
+
+         if(alreadySelectedArr.indexOf((i+1)) > -1){
+             (function(num){
+                 $cirMember.on("click", function(){
+                     alert("이미 선택한 번호입니다.");
+                 });
+                 $cirMember.css({backgroundColor: '#dddddd'});
+             })(i+1);
+             
+         }else{
+             (function(num){
+                 $cirMember.on("click", function(){
+                     select(num);
+                 });
+             })(i+1);
+         }
+         
+         $wrap.append($cirMember);
+
+         $('.game').append($wrap);
+     }
+ }
+ 
+ function select(num){
+     getData(function(data){
+         var foundNum = data.manito.filter(function(m){
+             return m.num == num;
+         });
+         var foundId = data.manito.filter(function(m){
+             return m.id == id;
+         })
+
+         if(foundId.length > 0){
+             alert("이미 " + foundId[0].num + "을(를) 선택하셨습니다.");
+         }
+         
+         else if(foundNum.length > 0){
+             alert("이미 선택된 번호입니다.");
+             location.reload();
+         }
+         else{
+             data.manito.push({num: num, id:id});
+             setData({manito: JSON.stringify(data.manito)}, function(){
+                 alert("선택이 완료되었습니다.");
+                 location.reload();
+             });
+         }
+     });
+ }
+
+ function getParam(name) {
+     var vars = {};
+     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+                                              function(m,key,value) {
+                                                  vars[key] = value;
+                                              });
+     return vars[name];
+ }
+
+ function showResult(){
+     getData(function(data){
+         if(data.manito.length == memberCount){
+             var myNum = data.manito.filter(function(m){
+                 return m.id == getParam('id');
+             })[0]['num'];
+
+             var resultData = data.manito.filter(function(m){
+                 if(myNum < memberCount && m.num == myNum + 1){
+                     return true;
+                 }else if(myNum == memberCount && m.num == 1){
+                     return true;
+                 }
+             })[0];
+
+             var resultName = data.member_id.filter(function(m){
+                 return m.id == resultData.id;
+             })[0]['name'];
+
+             alert("당신은 " + resultName + "님의 마니또입니다.");
+         }else{
+             alert("모든 참가자가 번호를 선택하면 결과를 확인할 수 있습니다");
+         }
+     });
+ }
+</script>
